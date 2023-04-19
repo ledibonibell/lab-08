@@ -2,12 +2,12 @@ name: Docker Compose
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,13 +29,5 @@ jobs:
         docker-compose push
 
     - name: Deploy with Docker Compose
-      uses: docker/compose-action@v2
-      with:
-        compose-file: docker-compose.yml
-        environment: |
-          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
-          API_KEY=${{ secrets.API_KEY }}
-        command: up
-        detach: true
-        rebuild: true
-        service: web
+      run: |
+        docker-compose up -d
