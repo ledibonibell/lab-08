@@ -118,10 +118,4 @@ jobs:
       run: |
         docker-compose up -d
 ```
-
-
-
-
-
-
-
+![Снимок экрана от 2023-04-19 20-01-54](https://user-images.githubusercontent.com/125737299/233682044-73aa2d6b-d0d7-47f9-b604-dda1cd192992.png)
